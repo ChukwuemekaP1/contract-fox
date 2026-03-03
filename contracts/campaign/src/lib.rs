@@ -1,9 +1,9 @@
 //! Campaign Contract
-//! 
+//!
 //! This contract handles campaign management for the StellarAid platform.
 //! Manages campaign creation, updates, and status tracking.
 
-use soroban_sdk::{contract, contractimpl, Env, Symbol};
+use soroban_sdk::{Env, Symbol, contract, contractimpl};
 
 #[contract]
 pub struct CampaignContract;
@@ -13,7 +13,9 @@ impl CampaignContract {
     /// Initialize the campaign contract
     pub fn initialize(env: Env) {
         // Store initialization state
-        env.storage().instance().set(&Symbol::new(&env, "init"), &true);
+        env.storage()
+            .instance()
+            .set(&Symbol::new(&env, "init"), &true);
     }
 
     /// Ping the contract to verify it's alive
@@ -32,7 +34,7 @@ mod test {
         let env = Env::default();
         let contract_id = env.register_contract(None, CampaignContract);
         let client = CampaignContractClient::new(&env, &contract_id);
-        
+
         assert_eq!(client.ping(), 1);
     }
 }

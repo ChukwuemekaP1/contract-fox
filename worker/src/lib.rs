@@ -1,6 +1,6 @@
 //! StellarAid Worker
-//! 
-//! This crate provides background processing utilities for the 
+//!
+//! This crate provides background processing utilities for the
 //! StellarAid platform, including event processing and indexing.
 
 /// Worker configuration
@@ -58,12 +58,18 @@ mod tests {
     #[test]
     fn test_worker_config_testnet() {
         let config = WorkerConfig::testnet();
-        assert_eq!(config.network_passphrase, "Test SDF Network ; September 2015");
+        assert_eq!(
+            config.network_passphrase,
+            "Test SDF Network ; September 2015"
+        );
     }
 
     #[test]
     fn test_worker_config_mainnet() {
         let config = WorkerConfig::mainnet();
-        assert_eq!(config.network_passphrase, "Public Global Stellar Network ; September 2015");
+        assert_eq!(
+            config.network_passphrase,
+            "Public Global Stellar Network ; September 2015"
+        );
     }
 }

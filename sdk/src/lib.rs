@@ -1,9 +1,9 @@
 //! StellarAid SDK
-//! 
-//! This SDK provides utilities and types for interacting with the 
+//!
+//! This SDK provides utilities and types for interacting with the
 //! StellarAid smart contracts.
 
-use soroban_sdk::{contracttype, Address, String};
+use soroban_sdk::{Address, String, contracttype};
 
 /// Represents a campaign in the StellarAid platform
 #[contracttype]
@@ -41,7 +41,7 @@ pub struct Donation {
 #[contracttype]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum Asset {
-    Native, // XLM
+    Native,         // XLM
     Token(Address), // Custom token contract address
 }
 
