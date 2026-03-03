@@ -39,9 +39,12 @@ pub fn fund_account(public_key: &str) -> Result<(), StellarError> {
     let config = NetworkConfig::from_env();
 
     // Guard: Mainnet has no Friendbot; return an error immediately.
-    let friendbot_base = config.friendbot_url.ok_or_else(|| StellarError::FriendbotNotAvailable {
-        network: config.name.to_string(),
-    })?;
+    let friendbot_base =
+        config
+            .friendbot_url
+            .ok_or_else(|| StellarError::FriendbotNotAvailable {
+                network: config.name.to_string(),
+            })?;
 
     let url = format!("{friendbot_base}?addr={public_key}");
 
